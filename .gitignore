@@ -102,3 +102,7 @@ dist
 
 # TernJS port file
 .tern-port
+
+nn-round-range.d.ts
+nn-round-range.d.ts.map
+nn-round-range.js

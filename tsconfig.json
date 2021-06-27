@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "jsx": "preserve",
+    "target": "es2019",
+    "module": "es2020",
+    "lib": ["es2020", "DOM", "DOM.Iterable"],
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "declaration": true,
+    "declarationMap": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "inlineSources": true,
+    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "outDir": "./",
+    "rootDir": "./src",
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": []
+}
