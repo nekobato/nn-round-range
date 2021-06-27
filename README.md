@@ -1,5 +1,6 @@
-
 # nn-round-range
+
+[![npm version](https://badge.fury.io/js/%40nekobato%2Fnn-round-range.svg)](https://badge.fury.io/js/%40nekobato%2Fnn-round-range)
 
 Round Range by Web Component
 
