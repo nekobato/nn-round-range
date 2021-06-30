@@ -7,15 +7,13 @@ export class NNRoundRange extends LitElement {
 
   @property({ type: Number }) value: number = 0;
   @state() isManupulating: boolean = false;
-  @state() rect?: DOMRect;
   @state() rectCenter?: { x: number; y: number };
   @query('#container') container?: HTMLElement;
   @query('#circle') circle?: SVGElement;
 
-  protected radian = (Math.PI / 180) * -90;
+  protected radian = -(Math.PI / 2); // (Math.PI / 180) * -90
 
   protected onKeydown(e: KeyboardEvent) {
-    console.log('!');
     if (e.code === 'ArrowRight') {
       e.preventDefault();
       this.value += 1;
@@ -27,10 +25,10 @@ export class NNRoundRange extends LitElement {
 
   protected onStartManupulate(e: MouseEvent) {
     e.preventDefault();
-    this.rect = this.container!.getBoundingClientRect();
+    const rect = this.container!.getBoundingClientRect();
     this.rectCenter = {
-      x: this.rect.right - this.rect.width / 2,
-      y: this.rect.bottom - this.rect.height / 2,
+      x: rect.right - rect.width / 2,
+      y: rect.bottom - rect.height / 2,
     };
     this.isManupulating = true;
   }
@@ -52,16 +50,13 @@ export class NNRoundRange extends LitElement {
         ((e as MouseEvent).clientY || (e as TouchEvent).touches[0].clientY) -
         this.rectCenter!.y,
     };
-    const rotatedPosition = {
-      x:
-        mousePosition.x * Math.cos(this.radian) -
-        mousePosition.y * Math.sin(this.radian),
-      y:
-        mousePosition.x * Math.sin(this.radian) +
-        mousePosition.y * Math.cos(this.radian),
-    };
     this.value =
-      (((Math.atan2(rotatedPosition.y, rotatedPosition.x) * 180) / Math.PI +
+      (((Math.atan2(
+        mousePosition.y * Math.cos(this.radian) - mousePosition.x,
+        mousePosition.x * Math.cos(this.radian) + mousePosition.y
+      ) *
+        180) /
+        Math.PI +
         180) *
         100) /
       360;
