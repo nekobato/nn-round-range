@@ -80,7 +80,7 @@ typings/
 
 # Nuxt.js build / generate output
 .nuxt
-dist
+
 
 # Gatsby files
 .cache/
@@ -106,5 +106,6 @@ dist
 nn-round-range.d.ts
 nn-round-range.d.ts.map
 nn-round-range.js
+nn-round-range.js.map
 nn-round-range.jsx
 nn-round-range.jsx.map
