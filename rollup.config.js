@@ -6,7 +6,7 @@ import replace from '@rollup/plugin-replace';
 export default {
   input: 'nn-round-range.js',
   output: {
-    file: 'dist/nn-round-range.bundled.js',
+    file: 'nn-round-range.bundled.js',
     format: 'esm',
   },
   onwarn(warning) {

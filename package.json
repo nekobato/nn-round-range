@@ -8,7 +8,7 @@
   "module": "nn-round-range.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
+    "build": "tsc && rollup -c",
     "build:watch": "tsc --watch",
     "serve": "wds --node-resolve --watch"
   },
