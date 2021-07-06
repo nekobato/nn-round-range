@@ -1,0 +1,40 @@
+body {
+  font-family: 'Nunito', sans-serif;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 32px;
+  text-align: center;
+}
+
+nn-round-range {
+  margin-top: 40px;
+}
+
+.duration {
+  font-size: 32px;
+}
+
+.button-group {
+  margin-top: 24px;
+}
+
+.button {
+  background: #444;
+  color: #fff;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.button:hover {
+  filter: brightness(120%);
+}
+
+.button:active {
+  filter: brightness(80%);
+}
