@@ -38,3 +38,11 @@ nn-round-range {
 .button:active {
   filter: brightness(80%);
 }
+
+.audio {
+  display: none;
+}
+
+.links {
+  margin-top: 16px;
+}
