@@ -3,8 +3,6 @@ import { customElement, property, query, state } from 'lit/decorators.js';
 
 @customElement('nn-round-range')
 export class NNRoundRange extends LitElement {
-  protected focusable = true;
-
   @property({ type: Number }) value: number = 0;
   @state() isManupulating: boolean = false;
   @state() rectCenter?: { x: number; y: number };
