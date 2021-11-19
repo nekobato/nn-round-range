@@ -4,6 +4,8 @@ import { customElement, property, query, state } from 'lit/decorators.js';
 @customElement('nn-round-range')
 export class NNRoundRange extends LitElement {
   @property({ type: Number }) value: number = 0;
+  @property({ type: Number }) min: number = 0;
+  @property({ type: Number }) max: number = 100;
   @state() isManupulating: boolean = false;
   @state() rectCenter?: { x: number; y: number };
   @query('#container') container?: HTMLElement;
@@ -12,12 +14,14 @@ export class NNRoundRange extends LitElement {
   protected radian = -(Math.PI / 2); // (Math.PI / 180) * -90
 
   protected onKeydown(e: KeyboardEvent) {
-    if (e.code === 'ArrowRight') {
+    if (e.code === 'ArrowRight' || e.code === 'ArrowUp') {
       e.preventDefault();
-      this.value += 1;
-    } else if (e.code === 'ArrowLeft') {
+      if (this.value <= this.max - 1) this.value += 1;
+      else if (this.value > this.max - 1) this.value = this.max;
+    } else if (e.code === 'ArrowLeft' || e.code === 'ArrowDown') {
       e.preventDefault();
-      this.value -= 1;
+      if (this.value >= this.min + 1) this.value -= 1;
+      else if (this.value < this.min + 1) this.value = this.min;
     }
   }
 
@@ -119,7 +123,12 @@ export class NNRoundRange extends LitElement {
         @touchstart=${this.onStartManupulate}
         @touchmove=${this.onManupulating}
         @touchend=${this.onManulupateend}
-        tanindex="0"
+        aria-valuemin="1"
+        aria-valuemax="100"
+        aria-valuenow=${this.value}
+        aria-valuetext=${this.value}
+        tabindex="0"
+        role="slider"
       >
         <svg class="svg" id="svg" class="circle" viewbox="0 0 320 320">
           <circle
